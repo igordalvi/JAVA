@@ -1,0 +1,8 @@
+Back to the Future::(MOVIE INFO: Release date, MPAA rating, Director's name, Studio, User rating or note)
+Home Alone::(MOVIE INFO: Release date, MPAA rating, Director's name, Studio, User rating or note)
+Avengers::(MOVIE INFO: Release date, MPAA rating, Director's name, Studio, User rating or note)
+Superman::(MOVIE INFO: Release date, MPAA rating, Director's name, Studio, User rating or note)
+Jurassic Park::(MOVIE INFO: Release date, MPAA rating, Director's name, Studio, User rating or note)
+Titanic::(MOVIE INFO: Release date, MPAA rating, Director's name, Studio, User rating or note)
+Lion King::(MOVIE INFO: Release date, MPAA rating, Director's name, Studio, User rating or note)
+Matrix::(MOVIE INFO: Release date, MPAA rating, Director's name, Studio, User rating or note)
