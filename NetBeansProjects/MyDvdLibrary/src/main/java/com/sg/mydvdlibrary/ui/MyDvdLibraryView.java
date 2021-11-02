@@ -25,13 +25,34 @@ public class MyDvdLibraryView {
         io.print("1. List DVDs by Title");
         io.print("2. Add a New DVD");
         io.print("3. DVD Search");
-        io.print("4. Remove a DVD");
-        io.print("5. Exit");
-        return io.readInt("Please select from the above choices.", 1, 5);
+        io.print("4. Edit a DVD");
+        io.print("5. Remove a DVD");
+        io.print("6. Exit");
+        return io.readInt("Please select from the above choices.", 1, 6);
     }
 
     public Dvd getNewDvdInfo() {
         String dvdTitle = io.readString("Please enter the Title of the DVD that you want to Add:");
+        String directorName = io.readString("DVD Director's Name:");
+        String releaseDate = io.readString("Release Date of this DVD:");
+        String studio = io.readString("Name of the Studio of this DVD:");
+
+        String mpaaRating = io.readString("MPAA Rating of this DVD:");
+        String userNoteOrRating = io.readString("Your Personal Rating, Comments or any Notes about this DVD");
+
+        Dvd currentDvd = new Dvd(dvdTitle);
+        currentDvd.setDirectorName(directorName);
+        currentDvd.setReleaseDate(releaseDate);
+        currentDvd.setStudio(studio);
+
+        currentDvd.setMpaaRating(mpaaRating);
+        currentDvd.setUserNote(userNoteOrRating);
+
+        return currentDvd;
+    }
+    
+    public Dvd getEditDvdInfo(Dvd dvd) {
+        String dvdTitle = io.readString("Please enter the new Title for this DVD:");
         String directorName = io.readString("DVD Director's Name:");
         String releaseDate = io.readString("Release Date of this DVD:");
         String studio = io.readString("Name of the Studio of this DVD:");
@@ -78,7 +99,7 @@ public class MyDvdLibraryView {
     }
 
     public String getDvdTitleChoice() {
-        return io.readString("Please enter the DVD Title that you want to search for:");
+        return io.readString("Please enter the DVD Title:");
     }
 
     public void displayDvd(Dvd dvd) {
@@ -95,6 +116,15 @@ public class MyDvdLibraryView {
             io.print("No such dvd.");
         }
         io.readString("Please hit enter to continue.");
+    }
+    
+    public void displayEditDvdBanner() {
+        io.print("=== Edit DVD ===");
+        io.print("");
+    }
+    
+    public void displayEditSuccessBanner() {
+        io.readString("DVD successfully edited. Please hit enter to continue");
     }
 
     public void displayRemoveDvdBanner() {

@@ -58,7 +58,7 @@ public class MyDvdLibraryDaoFileImpl implements MyDvdLibraryDao {
         }
         scanner.close();
     }
-    
+
     private String marshallDvd(Dvd aDvd) {
         String dvdAsText = aDvd.getDvdTitle() + DELIMITER;
         dvdAsText += aDvd.getDirectorName() + DELIMITER;
@@ -79,41 +79,50 @@ public class MyDvdLibraryDaoFileImpl implements MyDvdLibraryDao {
 
         String dvdAsText;
         List dvdList = this.getAllDvds();
-            
+
         for (Object currentDvd : dvdList) {
             dvdAsText = marshallDvd((Dvd) currentDvd);
             out.println(dvdAsText);
             out.flush();
         }
-        
+
         out.close();
     }
 
     @Override
-        public Dvd addDvd(String dvdTitle, Dvd dvd) throws MyDvdLibraryDaoException {
-            writeLibrary();
-            Dvd newDvd = dvds.put(dvdTitle, dvd);
-            return newDvd;
-        }
+    public Dvd addDvd(String dvdTitle, Dvd dvd) throws MyDvdLibraryDaoException {
+        loadLibrary();
+        Dvd newDvd = dvds.put(dvdTitle, dvd);
+        writeLibrary();
+        return newDvd;
+    }
 
     @Override
-        public List<Dvd> getAllDvds()throws MyDvdLibraryDaoException {
-            loadLibrary();
-            return new ArrayList<>(dvds.values());
-        }
+    public List<Dvd> getAllDvds() throws MyDvdLibraryDaoException {
+        loadLibrary();
+        return new ArrayList<>(dvds.values());
+    }
 
     @Override
-        public Dvd getDvd(String dvdTitle) throws MyDvdLibraryDaoException {
-            loadLibrary();
-            return dvds.get(dvdTitle);
-        }
+    public Dvd getDvd(String dvdTitle) throws MyDvdLibraryDaoException {
+        loadLibrary();
+        return dvds.get(dvdTitle);
+    }
 
     @Override
-        public Dvd removeDvd(String dvdTitle) throws MyDvdLibraryDaoException {
-            loadLibrary();
-            Dvd removedDvd = dvds.remove(dvdTitle);
-            writeLibrary();
-            return removedDvd;
-        }
+    public Dvd editDvd(String dvdTitle, Dvd dvd) throws MyDvdLibraryDaoException {
+        loadLibrary();
+        Dvd editedDvd = dvds.put(dvdTitle, dvd);
+        writeLibrary();
+        return editedDvd;
+    }
+
+    @Override
+    public Dvd removeDvd(String dvdTitle) throws MyDvdLibraryDaoException {
+        loadLibrary();
+        Dvd removedDvd = dvds.remove(dvdTitle);
+        writeLibrary();
+        return removedDvd;
+    }
 
 }

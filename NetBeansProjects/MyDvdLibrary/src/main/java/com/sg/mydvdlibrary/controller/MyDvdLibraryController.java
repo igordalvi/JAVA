@@ -10,6 +10,7 @@ import com.sg.mydvdlibrary.dao.MyDvdLibraryDaoException;
 import com.sg.mydvdlibrary.dto.Dvd;
 import com.sg.mydvdlibrary.ui.MyDvdLibraryView;
 import java.util.List;
+
 /**
  *
  * @author igord
@@ -32,7 +33,7 @@ public class MyDvdLibraryController {
 
             try {
                 menuSelection = getMenuSelection();
-                
+
                 switch (menuSelection) {
                     case 1:
                         listDvds();
@@ -44,9 +45,12 @@ public class MyDvdLibraryController {
                         viewDvd();
                         break;
                     case 4:
-                        removeDvd();
+                        editDvd();
                         break;
                     case 5:
+                        removeDvd();
+                        break;
+                    case 6:
                         keepGoing = false;
                         break;
                     default:
@@ -82,6 +86,17 @@ public class MyDvdLibraryController {
         Dvd dvd = dao.getDvd(dvdTitle);
         view.displayDvd(dvd);
     }
+
+    private void editDvd() throws MyDvdLibraryDaoException {
+        view.displayEditDvdBanner();
+        String dvdTitle = view.getDvdTitleChoice();
+        Dvd dvd = dao.getDvd(dvdTitle);
+        Dvd editedDvd = view.getEditDvdInfo(dvd);
+        dao.editDvd(dvdTitle, editedDvd);
+        view.displayEditSuccessBanner();
+    }
+
+    
 
     private void removeDvd() throws MyDvdLibraryDaoException {
         view.displayRemoveDvdBanner();

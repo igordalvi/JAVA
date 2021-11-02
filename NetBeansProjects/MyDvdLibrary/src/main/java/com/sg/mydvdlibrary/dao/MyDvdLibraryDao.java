@@ -48,11 +48,13 @@ public interface MyDvdLibraryDao {
     /**
      * Removes from the library the dvd associated with the given title.Returns the dvd object that is being removed or null if there is no dvd associated with the given title
      *
-     * @param dvdId
+     * @param dvdTitle
+     * @param dvd
      * @return Dvd object that was removed or null if no dvd was
      * associated with the given dvd title
-     * @throws com.sg.mydvdlibrary.dao.MyDvdLibraryDaoException
      */
+    Dvd editDvd(String dvdTitle, Dvd dvd) throws MyDvdLibraryDaoException;
+    
     Dvd removeDvd(String dvdId) throws MyDvdLibraryDaoException;
 
 }
