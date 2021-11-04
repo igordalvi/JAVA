@@ -1,0 +1,6 @@
+Jurassic Park::Steven Spielberg::1994::Universal::G::Awesome
+The Truman Show::Peter Weir::1998::Paramount::G::A film that takes place in a completely fabricated town, where cameras lurk behind every corner and every citizen is an actor or actress.
+Star Wars II::George Lucas::01/Jan/1978::MGM::PG1::Super movie
+A Glimpse Inside the Mind of Charles Swan III::Roman Coppola::2013::Sony Pictures::R::Didn't like it
+Amadeus::Milos Forman::1984::20th Century Fox::PG::Winner of eight Academy Awards, including Best Picture
+Mad Max: Fury Road::George Miller::2015::Warner::R::Tom Hardy taking on the lead role, formerly played by Mel Gibson
